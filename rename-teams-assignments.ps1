@@ -21,14 +21,17 @@ foreach ($subdirectory in $students) {
 
   $zipFiles = Get-ChildItem -Path $subdirectory.FullName -Filter "*.zip" -Recurse -File | Where-Object { $_.FullName -like "*$filter*" }
 
+  $version = 1
   foreach ($zipFile in $zipFiles) {
       
-      $newFileName = "$subdirectory.zip"
+      $newFileName = "$subdirectory-v$version.zip"
       $inPath = "$($zipFile.FullName)"
       $outPath = Join-Path -Path "$out" -ChildPath "$newFileName"
 
       Write-Debug "Found $zipFile, about to copy $inPath->$outPath"
 
       Copy-Item -Path "$inPath" -Destination "$outPath"
+
+      $version++
   }
 }

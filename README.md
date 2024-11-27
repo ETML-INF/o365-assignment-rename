@@ -1,1 +1,3 @@
 # o365-assignment-rename
+
+Mimic moodle assignment download style to have a folder with student name with corresponding zip...
