@@ -24,7 +24,7 @@ foreach ($subdirectory in $students) {
   $version = 1
   foreach ($zipFile in $zipFiles) {
       
-      $newFileName = "$subdirectory-v$version.zip"
+      $newFileName = "$subdirectory-v$($version)_$($zipFile.Basename).zip"
       $inPath = "$($zipFile.FullName)"
       $outPath = Join-Path -Path "$out" -ChildPath "$newFileName"
 
